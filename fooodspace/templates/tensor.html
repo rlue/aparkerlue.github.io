@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Tensor Decomposition Example</title>
+    <style type="text/css">
+     h1, h2, p {
+         font-family: sans-serif;
+         text-align: center;
+     }
+
+     code {
+         font-size: 1.2em;
+     }
+
+     .column {
+         float: left;
+         width: 50%;
+     }
+
+     .row:after {
+         content: "";
+         display: table;
+         clear: both;
+     }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="column">
+	<h2>Data</h2>
+	<p>10 &times; 10 &times; 4 array &bullet; 400 elements &bullet; 269 values</p>
+        <pre><code>
+                                          Lower East Side               W Vlg
+                                    Hell's Kitchen                Upper West
+                              Greenwich Village             Upper East Side
+                        Gramercy                      Midtown
+                  East Village                  Manhattan
+              Price = 0:
+        asian [[[ nan,  0. ,  nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan],
+    caribbean   [ nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan],
+      chinese   [ 0.4,  nan,  0. ,  nan,  1.3,  nan,  nan,  nan,  nan,  nan],
+       french   [ nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan],
+       indian   [ nan,  nan,  nan,  nan,  nan,  nan,  nan,  1.6,  nan,  nan],
+      italian   [ nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan,  0.6],
+     japanese   [ 0. ,  nan,  nan,  0.6,  0. ,  0. ,  nan,  nan,  nan,  0. ],
+mediterranean   [ nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan],
+      mexican   [ nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan,  nan,  0. ],
+     american   [ 0.9,  0.6,  1.1,  nan,  1.8,  2. ,  0. ,  nan,  2. ,  nan]],
+
+              Price = 1:
+        asian  [[ 1.5,  0.6,  2. ,  nan,  1.8,  1.1,  nan,  nan,  nan,  2.2],
+    caribbean   [ 0.3,  1.5,  0.5,  nan,  0.4,  nan,  0.3,  0.7,  nan,  nan],
+      chinese   [ 1.1,  2.9,  nan,  nan,  1.5,  0.4,  1.2,  0. ,  1.4,  nan],
+       french   [ 0. ,  0. ,  0.8,  nan,  2.1,  nan,  1.9,  1.4,  0.8,  nan],
+       indian   [ 0.9,  1.7,  1.5,  0.5,  nan,  nan,  1.3,  nan,  1.4,  2.5],
+      italian   [ 1.8,  1.6,  2.6,  3. ,  3.1,  2.3,  2.3,  1.4,  1.7,  3.1],
+     japanese   [ 1.7,  2.7,  0.3,  1.2,  1.7,  nan,  0.2,  1.9,  nan,  0.7],
+mediterranean   [ 0.3,  1.2,  1.7,  0.5,  0.9,  0.6,  0.9,  0.4,  1.4,  0. ],
+      mexican   [ 1.3,  0. ,  2.1,  1.4,  0.2,  1.4,  0. ,  nan,  0.7,  0.6],
+     american   [ 1.5,  1. ,  2.4,  2.4,  1.6,  1.7,  1.6,  1.7,  3.7,  1.8]],
+
+              Price = 2:
+        asian  [[ 1.7,  2.4,  2.7,  1.7,  1.7,  1.3,  0.2,  1. ,  1.6,  1.5],
+    caribbean   [ 1.9,  nan,  nan,  nan,  2.9,  nan,  2.8,  0. ,  2.5,  nan],
+      chinese   [ 1.4,  2.8,  1.6,  2.3,  1.5,  1.7,  2.5,  2.3,  0.7,  1.6],
+       french   [ 1.2,  2.2,  2. ,  nan,  nan,  nan,  nan,  nan,  nan,  0. ],
+       indian   [ 1.9,  nan,  1.5,  2.3,  nan,  0. ,  1. ,  2. ,  2.3,  nan],
+      italian   [ 3.8,  3.9,  2.6,  nan,  4.8,  2.9,  2.8,  3.6,  2.6,  3.6],
+     japanese   [ 2. ,  2.5,  1.6,  0.6,  1.4,  2.3,  1.9,  1.2,  2.3,  1.7],
+mediterranean   [ 1.4,  0.7,  1.4,  3.2,  nan,  0.2,  1.2,  0.7,  0.4,  1.5],
+      mexican   [ 1.1,  2.7,  2.2,  2.7,  1.8,  nan,  nan,  1.8,  2.8,  0. ],
+     american   [ 1.7,  2.4,  1.9,  2. ,  2.7,  2.1,  1.8,  2. ,  1.9,  1.9]],
+
+              Price = 3:
+        asian  [[ 1.8,  3.2,  2.1,  1.9,  2. ,  2.5,  2.8,  2.1,  1.2,  1.1],
+    caribbean   [ 2.8,  3.8,  3. ,  0. ,  0.4,  nan,  2.2,  3.4,  3.1,  nan],
+      chinese   [ nan,  nan,  3.7,  nan,  2.5,  1.9,  2.3,  1.7,  2.1,  0.4],
+       french   [ 1.5,  3.2,  2.6,  2.9,  1.8,  1.9,  2.7,  2.7,  2.4,  2.5],
+       indian   [ 2.4,  nan,  nan,  nan,  2. ,  nan,  1.8,  2.1,  2.2,  nan],
+      italian   [ 2.8,  3.1,  3.7,  2.4,  3.1,  2.7,  2.4,  1.9,  3. ,  3.1],
+     japanese   [ 2.1,  2.4,  2.7,  2.9,  nan,  2.1,  2.3,  3. ,  2.3,  2. ],
+mediterranean   [ 2. ,  2.6,  3.1,  1.8,  1.4,  1.3,  1.6,  1.9,  1.9,  2.1],
+      mexican   [ 1.9,  3.7,  2.7,  2.3,  nan,  2.4,  1.9,  2.7,  2.7,  2.1],
+     american   [ 2.1,  2.2,  2.5,  2.2,  2.2,  2.3,  2.1,  2.3,  2.7,  2.2]]]
+        </code></pre>
+      </div>
+      <div class="column">
+	<h2>Post-tensor decomposition</h2>
+	<p>3 &times; 3 &times; 2 core &bullet; 86 parameters &bullet; &lambda; = 1 &bullet; RMSE = 0.56</p>
+        <pre><code>
+                                          Lower East Side               W Vlg
+                                    Hell's Kitchen                Upper West
+                              Greenwich Village             Upper East Side
+                        Gramercy                      Midtown
+                  East Village                  Manhattan
+              Price = 0:
+        asian [[[ 0.5,  0.6,  0.5,  0.4,  0.6,  0.4,  0.4,  0.5,  0.5,  0.7],
+    caribbean   [ 0.2,  0.1,  0.4,  2. ,  1. ,  0.9,  0.5, -0.3,  0.3, -1.6],
+      chinese   [ 0.5,  0.6,  0.5,  0.2,  0.4,  0.3,  0.4,  0.5,  0.5,  0.8],
+       french   [ 0.3,  0.3,  0.4,  0.8,  0.5,  0.4,  0.4,  0.1,  0.3, -0.3],
+       indian   [ 0.6,  0.7,  0.6,  0.1,  0.6,  0.4,  0.4,  0.7,  0.6,  1.3],
+      italian   [ 1.2,  1.1,  1.2,  1.4,  1.8,  1.2,  1. ,  1. ,  1.2,  1.3],
+     japanese   [ 0.5,  0.5,  0.5,  0.5,  0.6,  0.4,  0.4,  0.4,  0.5,  0.5],
+mediterranean   [ 0.2,  0.3,  0.3,  0.7,  0.5,  0.4,  0.3,  0.1,  0.3, -0.2],
+      mexican   [ 0.3,  0.3,  0.4,  0.8,  0.5,  0.4,  0.4,  0.2,  0.4, -0.1],
+     american   [ 0.8,  0.8,  0.8,  1. ,  1.2,  0.8,  0.7,  0.7,  0.8,  0.8]],
+
+              Price = 1:
+        asian  [[ 1.1,  1.4,  1.3,  1.2,  1.3,  1. ,  1. ,  1.1,  1.2,  1.3],
+    caribbean   [ 0.8,  1. ,  1.3,  2.7,  1.6,  1.5,  1.2,  0.4,  1.1, -1. ],
+      chinese   [ 1.1,  1.5,  1.4,  1.1,  1.1,  1. ,  1.1,  1.2,  1.2,  1.3],
+       french   [ 0.8,  1.2,  1.2,  1.6,  1.1,  1. ,  1. ,  0.8,  1. ,  0.2],
+       indian   [ 1.3,  1.5,  1.4,  0.9,  1.3,  1. ,  1. ,  1.4,  1.3,  1.9],
+      italian   [ 2.3,  2.3,  2.3,  2.6,  3.2,  2.2,  1.9,  2. ,  2.4,  2.5],
+     japanese   [ 1.1,  1.4,  1.3,  1.3,  1.2,  1. ,  1.1,  1.1,  1.2,  1. ],
+mediterranean   [ 0.7,  1. ,  1. ,  1.3,  0.9,  0.9,  0.8,  0.7,  0.9,  0.2],
+      mexican   [ 0.9,  1.3,  1.3,  1.6,  1.1,  1.1,  1.1,  0.9,  1.1,  0.3],
+     american   [ 1.6,  1.7,  1.7,  1.9,  2.1,  1.5,  1.4,  1.4,  1.7,  1.6]],
+
+              Price = 2:
+        asian  [[ 1.6,  2. ,  1.9,  1.8,  1.9,  1.5,  1.5,  1.6,  1.8,  1.7],
+    caribbean   [ 1.3,  1.7,  2. ,  3.4,  2.1,  2. ,  1.8,  0.9,  1.7, -0.7],
+      chinese   [ 1.7,  2.2,  2.1,  1.7,  1.7,  1.5,  1.6,  1.8,  1.8,  1.8],
+       french   [ 1.3,  1.9,  1.9,  2.2,  1.5,  1.5,  1.6,  1.3,  1.6,  0.5],
+       indian   [ 1.8,  2.2,  2. ,  1.5,  1.9,  1.5,  1.5,  1.9,  1.9,  2.4],
+      italian   [ 3.2,  3.3,  3.3,  3.5,  4.3,  3. ,  2.6,  2.8,  3.3,  3.5],
+     japanese   [ 1.6,  2.1,  2. ,  1.9,  1.8,  1.5,  1.6,  1.6,  1.8,  1.5],
+mediterranean   [ 1.1,  1.5,  1.5,  1.8,  1.3,  1.3,  1.3,  1.1,  1.3,  0.5],
+      mexican   [ 1.4,  2. ,  1.9,  2.2,  1.6,  1.6,  1.6,  1.4,  1.7,  0.7],
+     american   [ 2.2,  2.4,  2.4,  2.6,  2.9,  2.1,  1.9,  2. ,  2.3,  2.3]],
+
+              Price = 3:
+        asian  [[ 1.8,  2.5,  2.4,  2.5,  2. ,  1.9,  1.9,  1.9,  2.1,  1.3],
+    caribbean   [ 2.4,  3.8,  3. ,  0.5,  1. ,  1.3,  2.1,  3.4,  2.6,  4.4],
+      chinese   [ 2.1,  3.1,  2.9,  3.2,  2.3,  2.3,  2.4,  2.1,  2.5,  1.1],
+       french   [ 2.1,  3.3,  3. ,  2.2,  1.6,  1.9,  2.3,  2.6,  2.5,  2.2],
+       indian   [ 1.8,  2.4,  2.4,  3.1,  2.3,  2.1,  2. ,  1.6,  2.1,  0.6],
+      italian   [ 2.7,  3.3,  3.1,  2.7,  3. ,  2.4,  2.4,  2.8,  2.9,  3.1],
+     japanese   [ 2. ,  3. ,  2.8,  2.7,  2. ,  2. ,  2.2,  2.2,  2.4,  1.5],
+mediterranean   [ 1.7,  2.6,  2.3,  1.7,  1.3,  1.5,  1.8,  2. ,  2. ,  1.8],
+      mexican   [ 2.2,  3.4,  3. ,  2.4,  1.8,  2. ,  2.4,  2.6,  2.6,  2.2],
+     american   [ 2.1,  2.7,  2.5,  2.2,  2.2,  1.9,  2. ,  2.2,  2.3,  2.3]]]
+        </code></pre>
+      </div>
+    </div>
+  </body>
+</html>
