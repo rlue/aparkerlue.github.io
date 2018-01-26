@@ -4,7 +4,7 @@ body, .section {
 }
 
 .jumbotron {
-    background-image: url('images/French.jpg');
+    background-image: url('images/Restaurant.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -18,6 +18,17 @@ body, .section {
 
 .bk-plot-layout {
     margin: 0 auto;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    border: solid black 1px;
+    padding: 1em;
+    text-align: right;
+    font-size: 2em;
 }
 
 iframe {
