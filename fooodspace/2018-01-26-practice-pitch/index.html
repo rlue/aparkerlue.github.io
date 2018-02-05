@@ -56,200 +56,204 @@
 
     <main role="main">
 
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron rounded-0 mb-0 d-flex align-items-center">
-        <div class="container">
-          <h1 class="display-2">Foood Space</h1>
-          <p class="lead">Data-driven business strategy for restaurants in NYC.</p>
-          <hr class="mb-5">
-          <div class="row">
-            <div class="col-md-7 col-lg-6">
-              <h2>Tools for Restaurateurs</h2>
-              <p>
-                The restaurant business is fraught with tough decisions. Foood Space analyzes multiple sources of open data so you can <strong>find out where the profit is</strong>:
-              </p>
-              <ul>
-                <li><strong>Upscale French</strong>, or <strong>casual American?</strong></li>
-                <li>A location on <strong>a street</strong>, or <strong>an avenue?</strong></li>
-                <li>A <strong>one-star</strong> Yelp rating, or <strong>three-star?</strong></li>
-              </ul>
-              <p>
-                <em>(Hint: It's not always what you think.)</em>
-              </p>
-              <p><a class="btn btn-success" href="#restaurant-data" role="button">Learn More &raquo;</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row" id="restaurant-data">
-        <div class="col bg_overlay">
-          <div class="container">
-            <div class="row my-5">
-              <div class="col-lg-6 text-right" id="restaurant-data__text">
-                <p class="lead">Harness data from</p>
-                <h2 class="display-2">6,000+ Restaurants</h2>
-                <p class="lead">throughout NYC.</p>
-                <p>Your choices (of cuisine, location, pricing, online presence, and more) have a direct impact on your chance of success.</p>
-                <p>Are you confident you're making the right ones?</p>
-              </div>
-              <div class="col-lg-6" id="restaurant-data__map">
-                <div class="bk-root">
-                  <div class="bk-plotdiv" id="ec376c0f-3575-438e-bc26-7f41ea9b38b2"></div>
+      <div class="container-fluid">
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="row" id="hero">
+          <div class="col">
+            <div class="jumbotron">
+              <h1 class="display-2">Foood Space</h1>
+              <p class="lead">Data-driven business strategy for restaurants in NYC.</p>
+              <hr class="mb-5">
+              <div class="row">
+                <div class="col-md-7 col-lg-6">
+                  <h2>Tools for Restaurateurs</h2>
+                  <p>
+                  The restaurant business is fraught with tough decisions. Foood Space analyzes multiple sources of open data so you can <strong>find out where the profit is</strong>:
+                  </p>
+                  <ul>
+                    <li><strong>Upscale French</strong>, or <strong>casual American?</strong></li>
+                    <li>A location on <strong>a street</strong>, or <strong>an avenue?</strong></li>
+                    <li>A <strong>one-star</strong> Yelp rating, or <strong>three-star?</strong></li>
+                  </ul>
+                  <p>
+                  <em>(Hint: It's not always what you think.)</em>
+                  </p>
+                  <p><a class="btn btn-success" href="#restaurant-data" role="button">Learn More &raquo;</a></p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="section" id="rating-value">Revenue-value of a rating star</h2>
-              <p>While more stars in a review tend to suggest a superior dining experience, our revenue model suggests that the dollar-value of an additional star becomes meaningful only after three stars.</p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-8 offset-md-2">
-              <figure class="figure text-center">
-                <img class="img-fluid img-thumbnail rounded" src="images/plot_star_rating.png" alt="Revenue-value of a rating star." />
-                <figcaption class="figure-caption">
-                  <strong>Impact of star ratings on predicted revenue.</strong> Predictions
-                  are conditioned on Italian restaurants in Hell's
-                  Kitchen.
-                </figcaption>
-              </figure>
+        <div class="row" id="restaurant-data">
+          <div class="container-fluid bg-overlay">
+            <div class="container">
+              <div class="row my-5">
+                <div class="col-lg-6 text-right" id="restaurant-data__text">
+                  <p class="lead">Harness data from</p>
+                  <h2 class="display-2">6,000+ Restaurants</h2>
+                  <p class="lead">throughout NYC.</p>
+                  <p>Your choices (of cuisine, location, pricing, online presence, and more) have a direct impact on your chance of success.</p>
+                  <p>Are you confident you're making the right ones?</p>
+                </div>
+                <div class="col-lg-6" id="restaurant-data__map">
+                  <div class="bk-root">
+                    <div class="bk-plotdiv" id="ec376c0f-3575-438e-bc26-7f41ea9b38b2"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="section" id="price-pivot">Pivoting on price</h2>
-              <p>
-              While sliding up the menu price scale generally
-              correlates with higher revenues, the marginal impact of
-              moving up a price tier varies considerably by cuisines
-              served.
-              </p>
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="section" id="rating-value">Revenue-value of a rating star</h2>
+                <p>While more stars in a review tend to suggest a superior dining experience, our revenue model suggests that the dollar-value of an additional star becomes meaningful only after three stars.</p>
+              </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-8 offset-md-2">
-              <figure class="figure text-center">
-                <img class="img-fluid img-thumbnail rounded" src="images/plot_culinary_pivot.png" alt="On- vs. off-avenue locations." />
-                <figcaption class="figure-caption">
-                  <strong>Impact of sliding along the price scale on predicted revenue.</strong> Predictions
-                  are conditioned on a median-latitude location in
-                  Hell's Kitchen.
-                </figcaption>
-              </figure>
+
+            <div class="row">
+              <div class="col-md-8 offset-md-2">
+                <figure class="figure text-center">
+                  <img class="img-fluid img-thumbnail rounded" src="images/plot_star_rating.png" alt="Revenue-value of a rating star." />
+                  <figcaption class="figure-caption">
+                    <strong>Impact of star ratings on predicted revenue.</strong> Predictions
+                    are conditioned on Italian restaurants in Hell's
+                    Kitchen.
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="section" id="avenue-premium">On- vs. off-avenue locations</h2>
-              <p>
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="section" id="price-pivot">Pivoting on price</h2>
+                <p>
+                While sliding up the menu price scale generally
+                correlates with higher revenues, the marginal impact of
+                moving up a price tier varies considerably by cuisines
+                served.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8 offset-md-2">
+                <figure class="figure text-center">
+                  <img class="img-fluid img-thumbnail rounded" src="images/plot_culinary_pivot.png" alt="On- vs. off-avenue locations." />
+                  <figcaption class="figure-caption">
+                    <strong>Impact of sliding along the price scale on predicted revenue.</strong> Predictions
+                    are conditioned on a median-latitude location in
+                    Hell's Kitchen.
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="section" id="avenue-premium">On- vs. off-avenue locations</h2>
+                <p>
                 On-avenue restaurant locations provide exposure to
                 transit patterns that significantly differ from those of
                 off-avenue locations. While avenues tend to be busier
                 than streets, our revenue model suggests that off-avenue
                 locations tend to demand a premium in many
                 neighborhoods.
-              </p>
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-8 offset-md-2">
-              <figure class="figure text-center">
-                <img class="img-fluid img-thumbnail rounded" src="images/plot_avenue_premium.png" alt="On- vs. off-avenue locations." />
-                <figcaption class="figure-caption">
-                  <strong>Impact of on- vs. off-avenue location on predicted revenue.</strong> Predictions
-                  are conditioned on three-dollar sign restaurants
-                  serving Italian food.
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="section" id="model">Revenue model</h2>
-              <p>
-              We proxy revenue using the product of the number of
-              reviews a restaurant has received and the restaurant's
-              average meal price for two. We fit a number of features
-              including cuisine, location, and price tier on the
-              revenue proxy, using an ensemble model that first
-              applies ridge regression and then models the residuals
-              using a random forest.
-              </p>
-              <p>
-              Our model achieves <strong>80% precision</strong> and <strong>92% recall</strong>,
-              with an R-squared of 0.63.
-              </p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-9">
-              <table style="margin: 0 auto; margin-bottom: 1em;">
-                <tr>
-                  <th></th><th></th><th colspan="2">Revenue proxy</th>
-                </tr>
-                <tr>
-                  <th></th><th></th><th>Above median</th><th>Below median</th>
-                </tr>
-                <tr>
-                  <th rowspan="2" style="transform: rotate(-90.0deg);">Predicted revenue</th><th style="transform: rotate(-90.0deg);">Above med.</th><td>2,790</td><td>700</td>
-                </tr>
-                <tr>
-                  <th style="transform: rotate(-90.0deg);">Below med.</th><td>251</td><td>2,303</td>
-                </tr>
-              </table>
+            <div class="row">
+              <div class="col-md-8 offset-md-2">
+                <figure class="figure text-center">
+                  <img class="img-fluid img-thumbnail rounded" src="images/plot_avenue_premium.png" alt="On- vs. off-avenue locations." />
+                  <figcaption class="figure-caption">
+                    <strong>Impact of on- vs. off-avenue location on predicted revenue.</strong> Predictions
+                    are conditioned on three-dollar sign restaurants
+                    serving Italian food.
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-10 offset-md-1">
-              <figure class="figure text-center">
-                <img class="img-fluid img-thumbnail rounded" src="images/plot_predictions.png" alt="Predicted revenue." />
-                <figcaption class="figure-caption"><strong>Predicted revenue vs. proxy revenue.</strong></figcaption>
-              </figure>
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="section" id="model">Revenue model</h2>
+                <p>
+                We proxy revenue using the product of the number of
+                reviews a restaurant has received and the restaurant's
+                average meal price for two. We fit a number of features
+                including cuisine, location, and price tier on the
+                revenue proxy, using an ensemble model that first
+                applies ridge regression and then models the residuals
+                using a random forest.
+                </p>
+                <p>
+                Our model achieves <strong>80% precision</strong> and <strong>92% recall</strong>,
+                with an R-squared of 0.63.
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-12">
-              <h2 class="section" id="restaurant-utility">Restaurant recommender system</h2>
-              <p>A higher <code>Fit</code> is better.</p>
-              <iframe src="https://fooodspace.herokuapp.com/"></iframe>
+            <div class="row">
+              <div class="col-md-9">
+                <table style="margin: 0 auto; margin-bottom: 1em;">
+                  <tr>
+                    <th></th><th></th><th colspan="2">Revenue proxy</th>
+                  </tr>
+                  <tr>
+                    <th></th><th></th><th>Above median</th><th>Below median</th>
+                  </tr>
+                  <tr>
+                    <th rowspan="2" style="transform: rotate(-90.0deg);">Predicted revenue</th><th style="transform: rotate(-90.0deg);">Above med.</th><td>2,790</td><td>700</td>
+                  </tr>
+                  <tr>
+                    <th style="transform: rotate(-90.0deg);">Below med.</th><td>251</td><td>2,303</td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <hr />
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10 offset-md-1">
+                <figure class="figure text-center">
+                  <img class="img-fluid img-thumbnail rounded" src="images/plot_predictions.png" alt="Predicted revenue." />
+                  <figcaption class="figure-caption"><strong>Predicted revenue vs. proxy revenue.</strong></figcaption>
+                </figure>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="section" id="restaurant-utility">Restaurant recommender system</h2>
+                <p>A higher <code>Fit</code> is better.</p>
+                <iframe src="https://fooodspace.herokuapp.com/"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+      </div>
 
     </main>
 

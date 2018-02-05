@@ -5,17 +5,20 @@
     padding-top: 3.5rem;
 }
 
-.jumbotron {
+#hero {
     min-height: 100vh;
     background-image: url('images/Restaurant.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    padding-top: 5rem;
 }
 
-.jumbotron .container {
+.jumbotron {
     padding: 3rem;
     padding-top: 5rem;
+    margin: 2rem auto;
+    max-width: 70rem;
     background: rgba(255, 255, 255, 0.88);
     border-radius: 10px;
 }
@@ -48,7 +51,7 @@ iframe {
   background-image: url('images/pexels-375889.jpg');
 }
 
-.bg_overlay {
+.bg-overlay {
   background: rgba(255, 255, 255, 0.6);
 }
 
