@@ -1,9 +1,12 @@
 /* Move down content because we have a fixed navbar that is 3.5rem tall */
-body, .section {
+/* NOTE: padding removed from body to support jumbotron: { min-height: 100vh; } */
+/* (if jumbotron is to occupy the full height of the window, it should begin at the top) */
+.section {
     padding-top: 3.5rem;
 }
 
 .jumbotron {
+    min-height: 100vh;
     background-image: url('images/Restaurant.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -11,8 +14,9 @@ body, .section {
 }
 
 .jumbotron .container {
-    padding: 1em;
-    background: rgba(255, 255, 255, 0.9);
+    padding: 3rem;
+    padding-top: 5rem;
+    background: rgba(255, 255, 255, 0.88);
     border-radius: 10px;
 }
 
@@ -26,9 +30,9 @@ th {
 
 td {
     border: solid black 1px;
-    padding: 1em;
+    padding: 1rem;
     text-align: right;
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 iframe {
@@ -37,4 +41,23 @@ iframe {
     margin: 0 auto;
     width: 100%;
     height: 1100px;
+}
+
+#restaurant-data {
+  background-size: cover;
+  background-image: url('images/pexels-375889.jpg');
+}
+
+.bg_overlay {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+@media (min-width: 992px) {
+  #restaurant-data__text {
+    padding-top: 5rem;
+  }
+}
+
+#restaurant-data__text > p.lead {
+  font-size: 2rem;
 }
